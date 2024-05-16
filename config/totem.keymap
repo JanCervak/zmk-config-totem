@@ -69,7 +69,7 @@ label= "NAV"                               ;
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
 //             ┃    f5     ┃    f6     ┃     f7    ┃    f8     ┃   esc     ┃   ┃   esc     ┃   left    ┃   down    ┃   right   ┃    pgdn   ┃
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃           ┃    f9     ┃    f10    ┃     f11   ┃    f12    ┃           ┃   ┃    ret    ┃   bspc    ┃    del    ┃    ins    ┃           ┃           ┃
+// ┃           ┃    f9     ┃    f10    ┃     f11   ┃    f12    ┃   ret     ┃   ┃    ret    ┃   bspc    ┃    del    ┃    ins    ┃           ┃           ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 //                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -78,7 +78,7 @@ label= "NAV"                               ;
 
                 &kp F1      &kp F2      &kp F3      &kp F4      &kp CAPS        &kp CAPS    &kp HOME    &kp UP      &kp END     &kp PG_UP  
                 &mt LGUI F5 &mt LALT F6 &mt LCTRL F7 &mt LSHFT F8 &kp ESC       &kp ESC     &kp LEFT    &kp DOWN    &kp RIGHT   &kp PG_DN   
-    &none       &kp F9      &kp F10     &kp F11     &kp F12     &none           &kp RET     &kp BSPC    &kp DEL     &kp INS     &none       &none       
+    &none       &kp F9      &kp F10     &kp F11     &kp F12     &kp RET         &kp RET     &kp BSPC    &kp DEL     &kp INS     &none       &none       
                                         &trans      &trans      &trans          &trans      &trans      &trans       
                         >;
                 };
