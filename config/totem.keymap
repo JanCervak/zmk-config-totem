@@ -46,7 +46,7 @@
 			label= "SYM";
 			bindings = <
 		&none		&none		&kp LBRC	&kp RBRC	&none		&none		&kp N7		&kp N8		&kp N9		&kp EQUAL
-		&kp LGUI	&kp LALT	&mt LCTRL LBKT	&mt LSHFT RBKT	&none		&kp N0		&mt RSHFT N4	&mt RCTRL N5	&mt RALT N6	&mt RGUI MINUS
+		&kp LGUI	&kp LALT	&mt LCTRL LBKT	&mt LSHFT RBKT	&kp GLOBE	&mt GLOBE N0	&mt RSHFT N4	&mt RCTRL N5	&mt RALT N6	&mt RGUI MINUS
 &none		&none		&none		&kp LPAR	&kp RPAR	&none		&none		&kp N1		&kp N2		&kp N3		&kp BSLH	&kp GRAVE 
 						&trans		&trans		&trans		&trans		&trans		&trans      
                         >;
@@ -56,7 +56,7 @@
 			label= "NAV";
 			bindings = <
 		&kp F1		&kp F2		&kp F3		&kp F4		&kp CAPS	&kp CAPS	&kp HOME	&kp UP		&kp END		&kp PG_UP  
-		&mt LGUI F5	&mt LALT F6	&mt LCTRL F7	&mt LSHFT F8	&kp ESC		&kp ESC		&kp LEFT	&kp DOWN	&kp RIGHT	&kp PG_DN   
+		&mt LGUI F5	&mt LALT F6	&mt LCTRL F7	&mt LSHFT F8	&mt GLOBE ESC	&mt GLOBE ESC	&kp LEFT	&kp DOWN	&kp RIGHT	&kp PG_DN   
 &none		&kp F9		&kp F10		&kp F11		&kp F12		&kp RET		&kp RET		&kp BSPC	&kp DEL		&kp INS		&none		&none       
 						&trans		&trans		&trans		&trans		&trans		&trans       
                         >;
