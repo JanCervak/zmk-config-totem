@@ -1,25 +1,15 @@
-//
-//                                                        ▀▀▀▀▀     ▀▀▀▀▀          ▀▀█▀▀
-//                                                        ▄▀▀▀▄  ▄  ▄▀▀▀▄  ▄  ▄▀▀▀▄  █  ▄▀▀▀▄
-//                                                        █   █  █  █   █  █  █   █  █  █   █
-//                                                         ▀▀▀   █   ▀▀▀   █   ▀▀▀   ▀   ▀▀▀
-//                                                               █      ▄▄▄█▄▄▄    █   █  
-//                                                               ▀      █  █  █     █▄█
-//                                                             ▀▀▀▀▀    █  █  █      ▀
-//                                                                      ▀  ▀  ▀
-//
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-       
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE 0
-#define SYM  1
-#define NAV  2
-#define ADJ  3
+#define A_BASE 1
+#define SYM  2
+#define NAV  3
+#define A_DIAC 4
+#define ADJ  5
+#define A_ADJ 6
 
 &mt {
   quick-tap-ms = <100>;
@@ -29,6 +19,55 @@
 };
 
 / {
+   	macros {
+		ad_a: apple_diacritics_acute {
+			compatible = "zmk,behavior-macro-one-param";
+			#binding-cells = <1>;
+			bindings 
+				= <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>
+				, <&kp LA(LS(E))>
+				;
+		};
+
+		ad_c: apple_diacritics_caron {
+			compatible = "zmk,behavior-macro-one-param";
+			#binding-cells = <1>;
+			bindings 
+				= <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>
+				, <&kp LA(LS(V))>
+				;
+		};
+
+		ad_o: apple_diacritics_overring {
+			compatible = "zmk,behavior-macro-one-param";
+			#binding-cells = <1>;
+			bindings 
+				= <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>
+				, <&kp LA(LS(K))>
+				;
+		};
+
+		i_std: info_standard {
+			compatible = "zmk,behavior-macro";
+			#binding-cells = <0>;
+			bindings = <&kp S &kp T &kp A &kp N &kp D &kp A &kp R &kp D>;
+		};
+
+		i_apple: info_apple {
+			compatible = "zmk,behavior-macro";
+			#binding-cells = <0>;
+			bindings = <&kp A &kp P &kp P &kp L &kp E>;
+		};
+	};
+
+	conditional_layers {
+		compatible = "zmk,conditional-layers";
+		apple_adjust {
+			if-layers = <A_BASE ADJ>;
+			then-layer = <A_ADJ>;
+		};
+	};	
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -39,6 +78,16 @@
 		&mt LGUI A	&mt LALT S	&mt LCTRL D	&mt LSHFT F	&mt GLOBE G	&mt GLOBE H	&mt RSHFT J	&mt RCTRL K	&mt RALT L	&mt RGUI SEMI
 &kp TAB		&kp Z		&kp X		&kp C		&kp V		&kp B		&kp N		&kp M		&kp COMMA	&kp DOT		&kp FSLH	&kp APOS
 						&mo SYM		&lt NAV SPACE	&mo ADJ		&mo ADJ		&lt NAV SPACE	&mo SYM  
+                        >;
+                };
+
+                apple_base_layer {
+ 			label= "APPLE_BASE";
+ 			bindings = <
+		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans
+		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans
+&lt A_DIAC TAB	&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&lt A_DIAC APOS
+						&trans		&trans		&trans		&trans		&trans		&trans  
                         >;
                 };
 
@@ -62,13 +111,33 @@
                         >;
                 };
 
+                apple_diacritics_layer {
+ 			label= "APPLE_DIAC";
+ 			bindings = <
+		&none		&ad_c E		&ad_a E		&ad_c R		&ad_c T		&ad_a Y		&ad_o U		&ad_a I		&ad_a O		&none
+		&ad_a A		&ad_c S		&ad_c D		&kp LSHFT	&none		&ad_a U		&kp RSHFT	&none		&none		&none
+&none		&ad_c Z		&none		&ad_c C		&none		&none		&ad_c N		&none		&none		&none		&none		&none
+						&none		&none		&none		&none		&none		&none
+                        >;
+                };
+
                 adjust_layer {
 			label= "ADJ";
 			bindings = <
-		&sys_reset	&bt BT_CLR	&bootloader	&none		&none		&none		&none		&none		&none		&none 
-		&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4	&none		&none		&none		&none		&none   
+		&sys_reset	&bt BT_CLR	&bootloader	&none		&none		&tog A_BASE	&none		&none		&none		&none 
+		&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4	&none		&i_std		&none		&none		&none   
 &none		&none		&none		&none		&none		&none		&none		&none		&none		&none		&none		&none         
 						&trans		&trans		&trans		&trans		&trans		&trans      
+                        >;
+                };
+
+                apple_adjust_layer {
+ 			label= "APPLE_ADJUST";
+ 			bindings = <
+		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans
+		&trans		&trans		&trans		&trans		&trans		&trans		&i_apple	&trans		&trans		&trans
+&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans		&trans
+						&trans		&trans		&trans		&trans		&trans		&trans  
                         >;
                 };
         };
