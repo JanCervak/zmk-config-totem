@@ -1,0 +1,30 @@
+/ {
+   	macros {
+		ad_a: apple_diacritics_acute {
+			compatible = "zmk,behavior-macro-one-param";
+			#binding-cells = <1>;
+			bindings 
+				= <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>
+				, <&kp LA(LS(E))>
+				;
+		};
+
+		ad_c: apple_diacritics_caron {
+			compatible = "zmk,behavior-macro-one-param";
+			#binding-cells = <1>;
+			bindings 
+				= <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>
+				, <&kp LA(LS(V))>
+				;
+		};
+
+		ad_o: apple_diacritics_overring {
+			compatible = "zmk,behavior-macro-one-param";
+			#binding-cells = <1>;
+			bindings 
+				= <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>
+				, <&kp LA(LS(K))>
+				;
+		};
+	};
+};

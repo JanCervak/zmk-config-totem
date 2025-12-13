@@ -1,0 +1,40 @@
+/ {
+   	macros {
+		wd_aa: windows_diacritics_acute_a { 
+			compatible = "zmk,behavior-macro"; 
+			#binding-cells = <0>; 
+			bindings 
+				= <&kp LA(KP_PLUS) &kp LA(KP_N1) &kp LA(KP_N6) &kp LA(KP_N0)>; 
+		}; 
+
+		wd_a_A: windows_diacritics_acute__A { 
+			compatible = "zmk,behavior-macro"; 
+			#binding-cells = <0>; 
+			bindings 
+				= <&macro_press &kp LALT> 
+				, <&kp KP_PLUS &kp KP_N1 &kp KP_N8 &kp KP_N1> 
+				, <&macro_release &kp LALT> 
+				; 
+		}; 
+
+		wd_ae: windows_diacritics_acute_e { 
+			compatible = "zmk,behavior-macro"; 
+			#binding-cells = <0>; 
+			bindings 
+				= <&macro_press &kp LALT> 
+				, <&kp KP_PLUS &kp KP_N1 &kp KP_N3 &kp KP_N0> 
+				, <&macro_release &kp LALT> 
+				; 
+		}; 
+
+		wd_a_E: windows_diacritics_acute__E { 
+			compatible = "zmk,behavior-macro"; 
+			#binding-cells = <0>; 
+			bindings 
+				= <&macro_press &kp LALT> 
+				, <&kp KP_PLUS &kp KP_N1 &kp KP_N4 &kp KP_N4> 
+				, <&macro_release &kp LALT> 
+				; 
+		}; 
+	};
+};
