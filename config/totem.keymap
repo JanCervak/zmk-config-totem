@@ -126,20 +126,20 @@
                 windows_diacritics_layer {
  			label= "W_DIAC";
  			bindings = <
-		&none		&none		&wd_ae		&none		&none		&none		&none		&none		&none		&none
-		&wd_aa		&none		&none		&mo W_DIAC_S	&none		&none		&mo W_DIAC_S	&none		&none		&none
-&none		&none		&none		&none		&none		&none		&none		&none		&none		&none		&none		&none
-						&none		&none		&none		&none		&none		&none  
+		&none		&wd_c E		&wd_a E		&wd_c R		&wd_c T		&wd_a Y		&wd_o U		&wd_a I		&wd_a O		&none
+		&wd_a A		&wd_c S		&wd_c D		&mo W_DIAC_S	&none		&wd_a U		&mo W_DIAC_S	&none		&none		&none
+&none		&wd_c Z		&none		&wd_c C		&none		&none		&wd_c N		&none		&none		&none		&none		&none
+						&none		&none		&none		&none		&none		&none
                         >;
                 };
 
                 windows_diacritics_shift_layer {
  			label= "W_DIAC_S";
  			bindings = <
-		&none		&none		&wd_a_E		&none		&none		&none		&none		&none		&none		&none
-		&wd_a_A		&none		&none		&none		&none		&none		&none		&none		&none		&none
-&none		&none		&none		&none		&none		&none		&none		&none		&none		&none		&none		&none
-						&none		&none		&none		&none		&none		&none  
+		&none		&wd_c LS(E)	&wd_a LS(E)	&wd_c LS(R)	&wd_c LS(T)	&wd_a LS(Y)	&wd_o LS(U)	&wd_a LS(I)	&wd_a LS(O)	&none
+		&wd_a LS(A)	&wd_c LS(S)	&wd_c LS(D)	&none		&none		&wd_a LS(U)	&none		&none		&none		&none
+&none		&wd_c LS(Z)	&none		&wd_c LS(C)	&none		&none		&wd_c LS(N)	&none		&none		&none		&none		&none
+						&none		&none		&none		&none		&none		&none
                         >;
                 };
 

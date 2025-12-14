@@ -1,40 +1,24 @@
+#undef RALT
+#define RALT LALT
+
 / {
    	macros {
-		wd_aa: windows_diacritics_acute_a { 
-			compatible = "zmk,behavior-macro"; 
-			#binding-cells = <0>; 
-			bindings 
-				= <&kp LA(KP_PLUS) &kp LA(KP_N1) &kp LA(KP_N6) &kp LA(KP_N0)>; 
-		}; 
+		wd_a: windows_diacritics_acute {
+			compatible = "zmk,behavior-macro-one-param";
+			#binding-cells = <1>;
+			bindings = <&kp RA(EQUAL)>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
+		};
 
-		wd_a_A: windows_diacritics_acute__A { 
-			compatible = "zmk,behavior-macro"; 
-			#binding-cells = <0>; 
-			bindings 
-				= <&macro_press &kp LALT> 
-				, <&kp KP_PLUS &kp KP_N1 &kp KP_N8 &kp KP_N1> 
-				, <&macro_release &kp LALT> 
-				; 
-		}; 
+		wd_c: windows_diacritics_caron {
+			compatible = "zmk,behavior-macro-one-param";
+			#binding-cells = <1>;
+			bindings = <&kp RA(PLUS)>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
+		};
 
-		wd_ae: windows_diacritics_acute_e { 
-			compatible = "zmk,behavior-macro"; 
-			#binding-cells = <0>; 
-			bindings 
-				= <&macro_press &kp LALT> 
-				, <&kp KP_PLUS &kp KP_N1 &kp KP_N3 &kp KP_N0> 
-				, <&macro_release &kp LALT> 
-				; 
-		}; 
-
-		wd_a_E: windows_diacritics_acute__E { 
-			compatible = "zmk,behavior-macro"; 
-			#binding-cells = <0>; 
-			bindings 
-				= <&macro_press &kp LALT> 
-				, <&kp KP_PLUS &kp KP_N1 &kp KP_N4 &kp KP_N4> 
-				, <&macro_release &kp LALT> 
-				; 
-		}; 
+		wd_o: windows_diacritics_overring {
+			compatible = "zmk,behavior-macro-one-param";
+			#binding-cells = <1>;
+			bindings = <&kp RA(TILDE)>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
+		};
 	};
 };
